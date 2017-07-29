@@ -42,7 +42,7 @@
         FB.api('/me/friends', function(response) {
             if (response.data) {
                 $.each(response.data, function(index, friend) {
-                    console.log(friend.name + ' has id:' + friend.id);
+                    alert(friend.name + ' has id:' + friend.id);
                 });
             } else {
                 alert("Error!");
