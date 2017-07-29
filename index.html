@@ -1,5 +1,6 @@
 <html>
 <!-- https://developers.facebook.com/docs/javascript/quickstart -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
 <head>
     <script>
@@ -28,14 +29,21 @@
     // Only works after `FB.init` is called
     function myFacebookLogin() {
         FB.login(function() {
-            FB.api('/me/feed', 'post', { message: 'Hello, world!' });
+
         }, { scope: 'publish_actions' });
+    }
+
+    function submitPost() {
+        var messageContent = $("#post").val();
+        FB.api('/me/feed', 'post', { message: messageContent });
     }
     </script>
 </head>
 
 <body>
     <button onclick="myFacebookLogin()">Login with Facebook</button>
+    <textarea name="postValue" id="post"></textarea>
+    <button onclick="submitPost()">Submit</button>
 </body>
 
 </html>
