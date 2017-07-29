@@ -35,6 +35,7 @@
 
     function submitPost() {
         var messageContent = $("#post").val();
+        alert("gets here: " + messageContent);
         FB.api('/me/feed', 'post', { message: messageContent });
     }
     </script>
