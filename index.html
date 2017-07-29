@@ -39,7 +39,7 @@
     }
 
     function getFriends() {
-        FB.api('/ed.orsini/friends', function(response) {
+        FB.api('/me/friends', function(response) {
             if (response.data) {
                 console.log("gets here 1");
                 console.log(response.data);
