@@ -35,8 +35,19 @@
 
     function submitPost() {
         var messageContent = $("#post").val();
-        alert("gets here: " + messageContent);
         FB.api('/me/feed', 'post', { message: messageContent });
+    }
+
+    function getFriends() {
+        FB.api('/me/friends', function(response) {
+            if (response.data) {
+                $.each(response.data, function(index, friend) {
+                    console.log(friend.name + ' has id:' + friend.id);
+                });
+            } else {
+                alert("Error!");
+            }
+        });
     }
     </script>
 </head>
@@ -46,6 +57,10 @@
     <div>
         <textarea name="postValue" id="post"></textarea>
         <button onclick="submitPost()">Submit</button>
+    </div>
+    <div>
+        \
+        <button onclick="getFriends()">Get Friends!</button>
     </div>
 </body>
 
